@@ -1,0 +1,36 @@
+body{
+    background-image: url('../static/farm.jpg');
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 500px;
+    margin-right: 500px;
+    }
+
+h1 {
+    margin-left: 100px;
+    }
+
+input {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-bottom: 4px solid black;
+    }
+
+button {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    }
+
+#prediction {
+    margin-top: 20px;
+    font-size: 40px;
+    color: white;
+    }
