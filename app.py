@@ -14,10 +14,10 @@ def predict():
     features = np.array([float_feature])
     prediction = model.predict(features)
     predicted_crop = prediction[0]
-    return render_template('index.html', prediction_text=f'Predicted Crop: {predicted_crop}')
+    return render_template('index.html', prediction_text=predicted_crop)
 
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=3000, debug=True)
