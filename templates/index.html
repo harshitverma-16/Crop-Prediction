@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>crop prediction model</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Crop Prediction System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 </head>
 <body>
-    <div class="login">
-        <h1> Crop Prediction</h1>
-       
-        <form action="/predict" method="post">
-            <input type="text" name = "Nitrogen" placeholder="Nitrogen" required="required"><br><br>
-            <input type="text" name = "Phosphorus" placeholder="Phosphorus" required="required"><br><br>
-            <input type="text" name = "Potassium" placeholder="Potassium" required="required"><br><br>
-            <input type="text" name = "Temperature" placeholder="Temperature" required="required"><br><br>
-            <input type="text" name = "Humidity" placeholder="Humidity" required="required"><br><br>
-            <input type="text" name = "pH" placeholder="pH" required="required"><br><br>
-            <input type="text" name = "Rainfall" placeholder="Rainfall" required="required"><br><br>
 
-            <button type="submit">Predict</button><br>
-        </form>
-    </div>
-    {% if prediction_text %}
-    <h2 id="result">{{ prediction_text }}</h2>
-    {% else %}
-    <h1 id="prediction">Your crop prediction will appear here.</h1>
-    {% endif %}
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">🌱 AgriPredict</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
 
+    <!-- Page Container -->
+    <div class="container">
+        <div class="form-card">
+            <h1 class="form-title">🌾 Smart Crop Prediction System</h1>
+            <p class="form-subtitle">Enter environmental and soil parameters to predict the most suitable crop.</p>
+
+            <form action="/predict" method="post" class="form-grid">
+                <!-- Main Environmental Inputs -->
+                <div class="input-group"><label for="Nitrogen">Nitrogen (N)</label><input type="text" name="Nitrogen" id="Nitrogen" required></div>
+                <div class="input-group"><label for="Phosphorus">Phosphorus (P)</label><input type="text" name="Phosphorus" id="Phosphorus" required></div>
+                <div class="input-group"><label for="Potassium">Potassium (K)</label><input type="text" name="Potassium" id="Potassium" required></div>
+                <div class="input-group"><label for="Temperature">Temperature (°C)</label><input type="text" name="Temperature" id="Temperature" required></div>
+                <div class="input-group"><label for="Humidity">Humidity (%)</label><input type="text" name="Humidity" id="Humidity" required></div>
+                <div class="input-group"><label for="pH">pH Level</label><input type="text" name="pH" id="pH" required></div>
+                <div class="input-group"><label for="Rainfall">Rainfall (mm)</label><input type="text" name="Rainfall" id="Rainfall" required></div>
+
+               
+                <button type="submit" class="submit-btn">Predict Crop</button>
+            </form>
+
+            {% if prediction_text %}
+            <div class="prediction-output">
+                <p class="prediction-text">{{ prediction_text }}</p>
+            </div>
+            {% else %}
+            <p class="placeholder">Your crop prediction will appear here.</p>
+            {% endif %}
+        </div>
     </div>
+
 </body>
 </html>

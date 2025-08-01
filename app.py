@@ -13,7 +13,7 @@ def predict():
     float_feature = [float(x) for x in request.form.values()]
     features = np.array([float_feature])
     prediction = model.predict(features)
-    predicted_crop = prediction[0]
+    predicted_crop = prediction[0].upper()
     return render_template('index.html', prediction_text=predicted_crop)
 
 
